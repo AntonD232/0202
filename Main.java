@@ -1,93 +1,59 @@
 import java.util.Scanner;
-//237 группа
-//Сложные типы данных : продолжение.
+//Давыдов 237 группа
+//Сложны типы данных 1.
 public class Main {
-    //Часто при обновлении программ нужно поддерживать старый код. Доработайте код новой версии игры-стратегии, чтобы он поддерживал параметры из старой версии:
-    //Поле gold типа long необходимо сохранить в переменную characterGold типа int (точно известно, что значение параметра gold меньше 2 000 000 000).
-    //Поле silver типа byte необходимо сохранить как переменную characterSilver типа int, предварительно умножив её на
-    //Поле wood типа short необходимо сохранить как переменную characterWood типа double.
-    //Поле health типа long необходимо сохранить как переменную characterHealth типа byte (точно известно, что значение параметра health меньше 100).
-    //Поле hasHelper типа boolean необходимо сохранить как переменную characterHelpersNumber типа byte. Если параметр hasHelper равен true, то в переменную characterHelpersNumber сохранить единицу, если false — ноль.
     public static void main(String[] args) {
-        long inputGold = 200L;
-        byte inputSilver = 39;
-        short inputWood = 2005;
-        long inputHealth = 97L;
-        boolean inputHasHelper = true;
+    zadanie zadanie = new zadanie();
+    zadanie.zad1();
+    zadanie.zad2();
+    zadanie.zad3();
 
-        Resources characterResources = new Resources(
-                inputGold,
-                inputSilver,
-                inputWood,
-                inputHealth,
-                inputHasHelper
-        );
-
-        int characterGold = Math.toIntExact(inputGold);
-        int characterSilver = inputSilver * 100;
-        double characterWood = inputWood;
-        byte characterHealth = (byte) inputHealth;
-        byte characterHelpersNumber = (byte) (inputHasHelper ? 1 : 0);
-
-        // установка значения characterHelpersNumber в зависимости от значения hasHelper
-
-
-        Character character = new Character(
-                characterGold,
-                characterSilver,
-                characterWood,
-                characterHealth,
-                characterHelpersNumber
-        );
-
-        System.out.println("Персонаж создан успешно!");
-        System.out.println("Количество золота: " + character.gold);
-        System.out.println("Количество серебра: " + character.silver);
-        System.out.println("Количество дерева: " + character.wood);
-        System.out.println("Здоровье: " + character.health);
-        System.out.println("Количество помощников: " + character.helpersNumber);
-        System.out.println("Навстречу приключениям!");
     }
 }
-class Resources {
-    long gold;
-    byte silver;
-    short wood;
-    long health;
-    boolean hasHelper;
-
-    public Resources(
-            long inputGold,
-            byte inputSilver,
-            short inputWood,
-            long inputHealth,
-            boolean inputHasHelper
-    ) {
-        gold = inputGold;
-        silver = inputSilver;
-        wood = inputWood;
-        health = inputHealth;
-        hasHelper = inputHasHelper;
-    }
-}
-class Character {
-    int gold;
-    int silver;
-    double wood;
-    byte health;
-    byte helpersNumber;
-
-    public Character(
-            int characterGold,
-            int characterSilver,
-            double characterWood,
-            byte characterHealth,
-            byte characterHelpersNumber
-    ) {
-        gold = characterGold;
-        silver = characterSilver;
-        wood = characterWood;
-        health = characterHealth;
-        helpersNumber = characterHelpersNumber;
-    }
+class zadanie {
+    static Scanner scanner = new Scanner(System.in);
+ static void zad1(){
+     //Напишите конвертер валют, который умеет работать с рублями и долларами:
+     //Установите стартовое значение на счету: 30002.7 рубля. Используйте переменную rubles.
+     //Курс доллара установите равным 78.5 рублям за доллар. Используйте переменную rateUSD.
+     //Вычислите значение в долларах: для этого переменную с количеством рублей необходимо поделить на курс доллара. Результат сохраните в переменную dollars.
+     //В результате работы программы напечатайте следующую строку: У вас на счету ... рублей. В долларах это ... долларов. Так держать!. Вместо многоточий подставьте соответствующие значения переменных.
+     double rubles =  30002.7;
+     double rateUSD = 78.5;
+     double dollars = rubles / rateUSD;
+     System.out.printf("У вас на счету %.1f рублей. В долларах это %.1f долларов. Так держать!", rubles, dollars);
+ }
+ static void zad2(){
+   // Напишите приложение, которое будет предупреждать о том, что погода испортилась.
+   // Суть такая: если на улице дождь, берём с собой зонт. Если нет, идём без него. Гулять в любом случае любим, так что в конце радуемся прогулке.
+   //Необходимо учесть следующее условие:
+   //Если переменная weather равна "Дождь", выведите сообщение "Беру с собой зонт".
+   //Иначе — выведите сообщение "Иду налегке".После условия в любом случае выведите сообщение "Люблю гулять!".
+     System.out.println("\nВведите погоду:");
+     String weather = scanner.nextLine().trim();
+     if (weather.equalsIgnoreCase("Дождь"))
+         System.out.println("Беру с собой зонт");
+     else
+         System.out.println("Иду налегке");
+     System.out.println("Люблю гулять!");
+ }
+ static void zad3(){
+     //Вас попросили написать рекомендательную систему для умного холодильника ХОЛОД-3000.
+     //Холодильник анализирует оставшееся количество яиц и предлагает вариант для завтрака:
+     //Если яиц больше трёх, отвечает: «Рекомендую приготовить омлет.».
+     //Если меньше трёх, отвечает: «Рекомендую позавтракать бутербродами.».
+     //В любом случае желает: «Приятного аппетита!».
+     //Напишите программу, которая работает по заданному алгоритму.
+     System.out.println("\nВведите кол-во яиц:");
+     int yayca = scanner.nextInt();
+     if (yayca>=3 )
+         System.out.println("Рекомендую приготовить омлет.");
+     else if (yayca <3 && yayca>=0)
+         System.out.println("Рекомендую позавтракать бутербродами.");
+     else {
+         System.out.println("меньше 0 не может ");
+         return;
+     }
+     System.out.println("Приятного аппетита!");
+ }
 }
