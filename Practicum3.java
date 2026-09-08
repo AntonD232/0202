@@ -1,58 +1,21 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+//237 группа
+import java.util.HashMap;
 
 public class Practicum3 {
     public static void main(String[] args) {
-        ArrayList<String> animals = new ArrayList<>();
-        animals.add("Шиншилла");
-        animals.add("Крокодил");
-        animals.add("Лев");
-        animals.add("Медведь");
-        animals.add("Слон");
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("1 - Показать список всех животных в зоопарке.");
-            System.out.println("2 - Добавить животное в список.");
-            System.out.println("3 - Удалить животное из списка.");
-            System.out.println("4 - Очистить список.");
-            System.out.println("5 - Проверить, есть ли в зоопарке указанное пользователем животное.");
-            int action = scanner.nextInt();
-            scanner.nextLine();
-            switch (action) {
-                case 1:
-                    for (String animal : animals) {
-                        System.out.println(animal);
-                    }
-                    break;
-                case 2:
-                    System.out.println("Введите название животного:");
-                    String animalAdd = scanner.nextLine();
-                    animals.add(animalAdd);
-                    break;
-                case 3:
-                    if (!animals.isEmpty()) {
-                        System.out.println("Введите название животного:");
-                        String animalRemove = scanner.nextLine();
-                        animals.remove(animalRemove);
-                    }else {
-						System.out.println("Такого животного нет в зоопарке.");
-                    break;
-                case 4:
-                    if (!animals.isEmpty()) {
-                        animals.clear();
-                    }
-                    break;
+        HashMap<String, Double> orders = new HashMap<>();
+        orders.put("Иван И.", 4345.5);
+        orders.put("Ольга С.", 76564.43);
+        orders.put("Александр Т.", 1234.86);
+        orders.put("Александр Р.", 23432.87);
+        orders.put("Екатерина О.", 1034753.6);
+        orders.put("Ярослав В.", 450.0);
 
-                case 5:
-                    System.out.println("Введите название животного:");
-                    String animalCheck = scanner.nextLine();
-                    if (animals.contains(animalCheck)) {
-                        System.out.println("Животное есть в зоопарке.");
-                    } else {
-                        System.out.println("Животного нет в зоопарке.");
-                    }
-                    break;
-            }
+        double sum = 0; // объявите переменную, где будет сохранена общая сумма
+        for (double order : orders.values()) { // пройдитесь в цикле по значениям
+            sum += order;
         }
+
+        System.out.println("Всего было совершено заказов на сумму: " + sum);
     }
 }
