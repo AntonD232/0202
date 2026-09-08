@@ -1,39 +1,27 @@
-//237 группа
-//Сложные типы данных : продолжение.
+import java.util.ArrayList;
+
 public class Practicum2 {
-//    Кота Пикселя на вечер субботы оставили бабушке.
-//    Она приготовила ему на выбор говядину и курицу, а перед сном налила молока и поставила блюдце сливок.
-//    Пиксель внимательно следит за питанием и в обоих случаях выбрал наименее калорийную еду.
-//    Вычислите, сколько всего ккал съел Пиксель за день, и проверьте, уложился ли питомец в свой лимит в 100 ккал.
-//    Чтобы код сработал, вам также нужно найти и исправить ошибки, касающиеся типов.
     public static void main(String[] args) {
-        String pixelKcalDay = "43"; // столько калорий съел Пиксель до похода к бабушке
-        String beefKcal = "30.2"; // калорийность говядины
-        String chickenKcal = "23.8"; // калорийность курицы
-        String creamKcal = "32.1"; // калорийность сливок
-        String milkKcal = "13.5"; // калорийность молока
-
-        float pixelChoice = getMinKcalsSum(beefKcal, chickenKcal, creamKcal, milkKcal);
-        float totalKcal = Float.parseFloat(pixelKcalDay) + pixelChoice;
-        checkKcal(totalKcal);
-    }
-
-    private static Float getMinKcalsSum(String firstDishKcal, String secondDishKcal, String firstDesert, String secondDesert) {
-        float minDishKcal =  Float.min(Float.parseFloat(firstDishKcal), Float.parseFloat(secondDishKcal)); // вычислите минимальную калорийность основного блюда
-        float minDesertKcal = Float.min(Float.parseFloat(firstDesert), Float.parseFloat(secondDesert)); // вычислите минимальную калорийность десерта
-        return minDishKcal + minDesertKcal;
-    }
-
-    private static void checkKcal(Float catKcal) {
-        if (catKcal == null) {
-            System.out.println("Что-то пошло не так");
-        } else {
-            System.out.println("Калорийность рациона Пикселя за день: " + catKcal);
-            if (catKcal > 100) {
-                System.out.println("Пиксель сегодня не уложился в норму.");
-            } else {
-                System.out.println("Лимит не превышен!");
-            }
+        ArrayList<String> animals = new ArrayList<>();
+        animals.add("Шиншилла");
+        animals.add("Крокодил");
+        animals.add("Лев");
+        animals.add("Медведь");
+        animals.add("Слон");
+        System.out.println("Сегодня в зоопарке можно увидеть кормления " + animals.size() + " животных.");
+        System.out.println("Это будут:");
+        for (String animal : animals) {
+            System.out.println(animal);
+        }
+        System.out.println("Расписание кормлений:");
+        ArrayList<Integer> feedingOrder = new ArrayList<>();
+        feedingOrder.add(1);
+        feedingOrder.add(4);
+        feedingOrder.add(0);
+        feedingOrder.add(2);
+        feedingOrder.add(3);
+        for (int i = 0; i < feedingOrder.size(); i++) {
+            System.out.println("В " + (9 + i) + ":00 - " + animals.get(feedingOrder.get(i)));
         }
     }
 }
